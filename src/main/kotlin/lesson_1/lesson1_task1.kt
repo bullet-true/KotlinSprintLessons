@@ -1,5 +1,6 @@
 package org.example.lesson_1
 
 fun main() {
-    println("Hello world")
+    var ordersCount: Int = 75
+    val thanksMessageForOrder: String = "Thanks for the order!"
 }
