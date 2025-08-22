@@ -1,20 +1,13 @@
 package org.example.lesson_3
 
 fun main() {
-    var fromChar = "E"
-    var fromNum = 2
-    var toChar = "E"
-    var toNum = 4
+    var moveFrom = "E2"
+    var moveTo = "E4"
     var moveNumber = 1
-    getString(fromChar, fromNum, toChar, toNum, moveNumber).also { println(it) }
+    println("$moveFrom-$moveTo;$moveNumber")
 
-    fromChar = "D"
-    fromNum = 2
-    toChar = "D"
-    toNum = fromNum + 1
+    moveFrom = "D2"
+    moveTo = "D3"
     moveNumber++
-    getString(fromChar, fromNum, toChar, toNum, moveNumber).also { println(it) }
+    println("$moveFrom-$moveTo;$moveNumber")
 }
-
-fun getString(fromChar: String, fromNum: Int, toChar: String, toNum: Int, moveNumber: Int): String =
-    "$fromChar$fromNum-$toChar$toNum;$moveNumber"
