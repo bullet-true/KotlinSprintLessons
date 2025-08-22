@@ -1,11 +1,14 @@
 package org.example.lesson_1
 
-const val TOTAL_SECONDS_IN_SPACE = 6480
+const val SECONDS_PER_HOUR = 3600
+const val SECONDS_PER_MINUTE = 60
 
 fun main() {
-    val hours = TOTAL_SECONDS_IN_SPACE / 3600
-    val minutes = (TOTAL_SECONDS_IN_SPACE % 3600) / 60
-    val seconds = TOTAL_SECONDS_IN_SPACE % 60
+    val totalSecondsInSpace = 6480
+
+    val hours = totalSecondsInSpace / SECONDS_PER_HOUR
+    val minutes = (totalSecondsInSpace % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE
+    val seconds = totalSecondsInSpace % SECONDS_PER_MINUTE
 
     val time = "%02d:%02d:%02d".format(hours, minutes, seconds)
     println(time)
