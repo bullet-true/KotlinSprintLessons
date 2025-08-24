@@ -1,5 +1,9 @@
 package org.example.lesson_4
 
+const val MIN_CREW_COUNT = 55
+const val MAX_CREW_COUNT = 70
+const val DEFAULT_PROVISIONS_COUNT = 50
+
 fun main() {
     var isShipDamaged: Boolean? = null
     var crewCount: Int
@@ -48,7 +52,8 @@ fun main() {
         }
     }
 
-    val canSail = (!isShipDamaged && crewCount in 55..70 && provisions > 50) ||
-            (isShipDamaged && crewCount == 70 && provisions >= 50 && isWeatherFavorable)
+    val canSail =
+        (!isShipDamaged && crewCount in MIN_CREW_COUNT..MAX_CREW_COUNT && provisions > DEFAULT_PROVISIONS_COUNT) ||
+                (isShipDamaged && crewCount == MAX_CREW_COUNT && provisions >= DEFAULT_PROVISIONS_COUNT && isWeatherFavorable)
     println("Корабль ${if (canSail) "может" else "не может"} отправиться в плавание")
 }
