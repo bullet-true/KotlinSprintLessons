@@ -9,7 +9,9 @@ fun main() {
     val firstItemVolume = 80
     println(
         "Груз с весом $firstItemWeight кг и объемом $firstItemVolume л соответствует категории 'Average': ${
-            (firstItemWeight > MIN_WEIGHT && firstItemWeight <= MAX_WEIGHT) && firstItemVolume < MAX_VOLUME
+            firstItemWeight > MIN_WEIGHT &&
+            firstItemWeight <= MAX_WEIGHT &&
+            firstItemVolume < MAX_VOLUME
         }"
     )
 
@@ -17,7 +19,9 @@ fun main() {
     val secondItemVolume = 100
     println(
         "Груз с весом $secondItemWeight кг и объемом $secondItemVolume л соответствует категории 'Average': ${
-            (secondItemWeight > MIN_WEIGHT && secondItemWeight <= MAX_WEIGHT) && secondItemVolume < MAX_VOLUME
+            secondItemWeight > MIN_WEIGHT &&
+            secondItemWeight <= MAX_WEIGHT &&
+            secondItemVolume < MAX_VOLUME
         }"
     )
 }
