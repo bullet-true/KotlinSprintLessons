@@ -53,7 +53,12 @@ fun main() {
     }
 
     val canSail =
-        (!isShipDamaged && crewCount in MIN_CREW_COUNT..MAX_CREW_COUNT && provisions > DEFAULT_PROVISIONS_COUNT) ||
-                (isShipDamaged && crewCount == MAX_CREW_COUNT && provisions >= DEFAULT_PROVISIONS_COUNT && isWeatherFavorable)
+        !isShipDamaged &&
+        crewCount in MIN_CREW_COUNT..MAX_CREW_COUNT &&
+        provisions > DEFAULT_PROVISIONS_COUNT ||
+        isShipDamaged &&
+        crewCount == MAX_CREW_COUNT &&
+        provisions >= DEFAULT_PROVISIONS_COUNT &&
+        isWeatherFavorable
     println("Корабль ${if (canSail) "может" else "не может"} отправиться в плавание")
 }
