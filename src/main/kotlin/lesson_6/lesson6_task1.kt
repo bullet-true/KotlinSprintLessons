@@ -12,7 +12,7 @@ fun main() {
     println("Для входа в приложение введите свой логин и пароль")
     var isVerified = false
 
-    while (!isVerified) {
+    do {
         println("Введите логин:")
         val userInputLogin = readln()
 
@@ -25,5 +25,5 @@ fun main() {
         } else {
             println("Неверный логин или пароль. Попробуйте снова")
         }
-    }
+    } while (!isVerified)
 }
