@@ -11,15 +11,20 @@ fun main() {
     var numberOfAttempts = NUMBER_OF_ATTEMPTS
 
     while (numberOfAttempts > 0) {
-        val userInput = readln().toIntOrNull() ?: run {
-            println("Вы ввели не целое число!")
+        val userInput = readln().toIntOrNull()
+
+        if (userInput == null) {
+            println("Вы ввели не целое число! Введите заново:")
         }
+
         if (userInput == randomNumber) {
             println("Это была великолепная игра!")
             return
         } else {
             numberOfAttempts--
-            println("Неверно. Осталось попыток: $numberOfAttempts")
+            if (numberOfAttempts > 0) {
+                println("Неверно. Осталось попыток: $numberOfAttempts")
+            }
         }
     }
     println("Было загадано число $randomNumber")
