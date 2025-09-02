@@ -1,5 +1,5 @@
 # Оглавление #
-## Номера урков ##
+## Номера уроков ##
 1. Variables
 2. Arithmetic operations
 3. Strings
