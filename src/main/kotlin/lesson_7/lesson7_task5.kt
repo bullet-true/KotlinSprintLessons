@@ -1,14 +1,10 @@
 package org.example.lesson_7
 
-import kotlin.random.Random
-
 const val MIN_LENGTH_PASS = 6
 const val CHAR_TYPE_COUNT = 3
 
 fun main() {
-    val numberRange = 0..9
-    val lowerCharRange = 'a'..'z'
-    val upperCharRange = 'A'..'Z'
+    val listOfCharRanges = listOf('0'..'9', 'a'..'z', 'A'..'Z')
     var userInput: Int
     var password = ""
 
@@ -19,16 +15,10 @@ fun main() {
         if (userInput < MIN_LENGTH_PASS) println("Минимальное число символов для пароля: $MIN_LENGTH_PASS:")
     } while (userInput < MIN_LENGTH_PASS)
 
-    // Гарантируем, что присутствуют все три вида символов
-    password = password + lowerCharRange.random() + numberRange.random() + upperCharRange.random()
+    listOfCharRanges.forEach { password += it.random() }
 
-    // Остальные символы - рандомно
     repeat(userInput - CHAR_TYPE_COUNT) {
-        password += when (Random.nextInt(CHAR_TYPE_COUNT)) {
-            0 -> numberRange.random()
-            1 -> lowerCharRange.random()
-            else -> upperCharRange.random()
-        }
+        password += listOfCharRanges.random().random()
     }
 
     password = password.toList().shuffled().joinToString("")
