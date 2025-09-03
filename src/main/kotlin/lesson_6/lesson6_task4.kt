@@ -15,6 +15,7 @@ fun main() {
 
         if (userInput == null) {
             println("Вы ввели не целое число! Введите заново:")
+            continue
         }
 
         if (userInput == randomNumber) {
