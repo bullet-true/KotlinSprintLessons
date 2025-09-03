@@ -1,16 +1,18 @@
 package org.example.lesson_7
 
-import kotlin.random.Random
-
 const val PASS_LENGTH = 6
 
 fun main() {
-    val numberRange = 1..9
+    val numberRange = 0..9
     val charRange = 'a'..'z'
     var password = ""
 
-    repeat(PASS_LENGTH) {
-        password += if (Random.nextBoolean()) numberRange.random() else charRange.random()
+    for (i in 0 until PASS_LENGTH) {
+        password += if (i % 2 == 0) {
+            charRange.random()
+        } else {
+            numberRange.random()
+        }
     }
     println(password)
 }
