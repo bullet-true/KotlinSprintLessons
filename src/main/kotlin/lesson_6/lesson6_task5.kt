@@ -1,17 +1,17 @@
 package org.example.lesson_6
 
-const val NUMBER_FROM = 1
-const val NUMBER_TO = 9
-const val NUMBER_OF_ATTEMPTS = 3
+const val NUMBER_FIRST = 1
+const val NUMBER_LAST = 9
+const val NUMBER_OF_ATTEMPT = 3
 
 fun main() {
     println("Проверка на бота")
-    var numberOfAttempts = NUMBER_OF_ATTEMPTS
+    var numberOfAttempts = NUMBER_OF_ATTEMPT
     var isUserAnswerCorrect = false
 
     do {
-        val firstRandomNumber = (NUMBER_FROM..NUMBER_TO).random()
-        val secondRandomNumber = (NUMBER_FROM..NUMBER_TO).random()
+        val firstRandomNumber = (NUMBER_FIRST..NUMBER_LAST).random()
+        val secondRandomNumber = (NUMBER_FIRST..NUMBER_LAST).random()
         val correctAnswer = firstRandomNumber + secondRandomNumber
 
         println("Вычислите результат сложения $firstRandomNumber + $secondRandomNumber :")
