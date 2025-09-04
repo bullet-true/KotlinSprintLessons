@@ -6,7 +6,7 @@ const val CHAR_TYPE_COUNT = 3
 fun main() {
     val listOfCharRanges = listOf('0'..'9', 'a'..'z', 'A'..'Z')
     var userInput: Int
-    var password = ""
+    val password = mutableListOf<Char>()
 
     println("Введите длину пароля для генерации (не меньше $MIN_LENGTH_PASS символов):")
 
@@ -15,12 +15,12 @@ fun main() {
         if (userInput < MIN_LENGTH_PASS) println("Минимальное число символов для пароля: $MIN_LENGTH_PASS:")
     } while (userInput < MIN_LENGTH_PASS)
 
-    listOfCharRanges.forEach { password += it.random() }
+    listOfCharRanges.forEach { password.add(it.random()) }
 
     repeat(userInput - CHAR_TYPE_COUNT) {
-        password += listOfCharRanges.random().random()
+        password.add(listOfCharRanges.random().random())
     }
 
-    password = password.toList().shuffled().joinToString("")
-    println(password)
+    password.shuffle()
+    println(password.joinToString(""))
 }
