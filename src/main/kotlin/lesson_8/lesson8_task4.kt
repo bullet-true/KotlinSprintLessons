@@ -9,13 +9,15 @@ fun main() {
 
     do {
         val userInput = readln().lowercase()
-        if (ingredients.contains(userInput)) {
+        val indexOfIngredient = ingredients.indexOf(userInput)
+
+        if (indexOfIngredient != -1) {
             isIngredientExist = true
 
             println("На какой ингредиент вы хотите заменить?:")
             val newIngredient = readln().lowercase()
 
-            ingredients[ingredients.indexOf(userInput)] = newIngredient
+            ingredients[indexOfIngredient] = newIngredient
 
             println(
                 "Готово! Вы сохранили следующий список: ${
