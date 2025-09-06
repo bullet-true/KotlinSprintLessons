@@ -23,14 +23,15 @@ class User(
     val login: String,
     val pass: String,
     val email: String,
-)
+) {
 
-fun User.printInfo() {
-    println("""
+    fun printInfo() {
+        println("""
         User: ${this.login}
         ID: ${this.id}
         Password: ${this.pass}
         Email: ${this.email}
     """.trimIndent()
-    )
+        )
+    }
 }
