@@ -4,7 +4,7 @@ fun main() {
     val bender = User2(
         id = 0,
         login = "BenderRodriguez",
-        pass = "kill_all_humans",
+        password = "kill_all_humans",
         email = "shiny_metal_ass@planetexpress.com",
     )
 
@@ -17,7 +17,7 @@ fun main() {
 class User2(
     val id: Int,
     val login: String,
-    var pass: String,
+    var password: String,
     val email: String,
     var bio: String = "",
 ) {
@@ -25,11 +25,11 @@ class User2(
     fun printInfo() {
         println(
             """
-        User: ${this.login}
-        ID: ${this.id}
-        Password: ${this.pass}
-        Email: ${this.email}
-        Bio: ${this.bio}
+        User: $login
+        ID: $id
+        Password: $password
+        Email: $email
+        Bio: $bio
     """.trimIndent()
         )
     }
@@ -41,9 +41,9 @@ class User2(
 
     fun updatePass() {
         println("Для изменения пароля введите текущий пароль:")
-        if (readln() == pass) {
+        if (readln() == password) {
             println("Введите пароль, который хотите установить:")
-            pass = readln()
+            password = readln()
         } else println("Пароль не верный")
     }
 }
