@@ -4,13 +4,13 @@ fun main() {
     val bender = User(
         id = 0,
         login = "BenderRodriguez",
-        pass = "kill_all_humans",
+        password = "kill_all_humans",
         email = "shiny_metal_ass@planetexpress.com",
     )
     val fry = User(
         id = 1,
         login = "PhillipJ.Fry",
-        pass = "i<3Lela",
+        password = "i<3Lela",
         email = "fry@planetexpress.com",
     )
 
@@ -21,16 +21,16 @@ fun main() {
 class User(
     val id: Int,
     val login: String,
-    val pass: String,
+    val password: String,
     val email: String,
 ) {
 
     fun printInfo() {
         println("""
-        User: ${this.login}
-        ID: ${this.id}
-        Password: ${this.pass}
-        Email: ${this.email}
+        User: $login
+        ID: $id
+        Password: $password
+        Email: $email
     """.trimIndent()
         )
     }
