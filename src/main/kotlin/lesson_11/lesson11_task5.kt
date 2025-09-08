@@ -17,45 +17,45 @@ fun main() {
     forum.printThread()
 }
 
-class Member private constructor(
+data class Member(
     val userId: Int,
     val userName: String,
-) {
-    class Builder {
-        private var userId: Int = 0
-        private var userName: String = ""
+)
 
-        fun userId(userId: Int) = apply { this.userId = userId }
-        fun userName(userName: String) = apply { this.userName = userName }
-
-        fun build() = Member(userId, userName)
-    }
-}
-
-class Message private constructor(
+data class Message(
     val authorId: Int,
     val message: String,
-) {
-    class Builder {
-        private var authorId: Int = 0
-        private var message = ""
-
-        fun authorId(authorId: Int) = apply { this.authorId = authorId }
-        fun message(message: String) = apply { this.message = message }
-
-        fun build() = Message(authorId, message)
-    }
-}
+)
 
 class Forum {
     private var userId = 0
     private val members = mutableListOf<Member>()
     private val messages = mutableListOf<Message>()
 
+    private class MemberBuilder {
+        private var userId: Int = 0
+        private var userName: String = ""
+
+        fun getUserId(userId: Int) = apply { this.userId = userId }
+        fun getUserName(userName: String) = apply { this.userName = userName }
+
+        fun build() = Member(userId, userName)
+    }
+
+    private class MessageBuilder {
+        private var authorId: Int = 0
+        private var message: String = ""
+
+        fun getAuthorId(authorId: Int) = apply { this.authorId = authorId }
+        fun getMessage(message: String) = apply { this.message = message }
+
+        fun build() = Message(authorId, message)
+    }
+
     fun createUser(userName: String): Member {
-        val newUser = Member.Builder()
-            .userId(userId++)
-            .userName(userName)
+        val newUser = MemberBuilder()
+            .getUserId(userId++)
+            .getUserName(userName)
             .build()
         members.add(newUser)
         return newUser
@@ -63,9 +63,9 @@ class Forum {
 
     fun createNewMessage(userId: Int, message: String): Message? {
         if (members.any { it.userId == userId }) {
-            val newMessage = Message.Builder()
-                .authorId(userId)
-                .message(message)
+            val newMessage = MessageBuilder()
+                .getAuthorId(userId)
+                .getMessage(message)
                 .build()
             messages.add(newMessage)
             return newMessage
