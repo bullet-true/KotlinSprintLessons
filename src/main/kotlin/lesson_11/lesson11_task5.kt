@@ -32,41 +32,15 @@ class Forum {
     private val members = mutableListOf<Member>()
     private val messages = mutableListOf<Message>()
 
-    private class MemberBuilder {
-        private var userId: Int = 0
-        private var userName: String = ""
-
-        fun getUserId(userId: Int) = apply { this.userId = userId }
-        fun getUserName(userName: String) = apply { this.userName = userName }
-
-        fun build() = Member(userId, userName)
-    }
-
-    private class MessageBuilder {
-        private var authorId: Int = 0
-        private var message: String = ""
-
-        fun getAuthorId(authorId: Int) = apply { this.authorId = authorId }
-        fun getMessage(message: String) = apply { this.message = message }
-
-        fun build() = Message(authorId, message)
-    }
-
     fun createUser(userName: String): Member {
-        val newUser = MemberBuilder()
-            .getUserId(userId++)
-            .getUserName(userName)
-            .build()
+        val newUser = Member(userId++, userName)
         members.add(newUser)
         return newUser
     }
 
     fun createNewMessage(userId: Int, message: String): Message? {
         if (members.any { it.userId == userId }) {
-            val newMessage = MessageBuilder()
-                .getAuthorId(userId)
-                .getMessage(message)
-                .build()
+            val newMessage = Message(userId, message)
             messages.add(newMessage)
             return newMessage
         } else return null
