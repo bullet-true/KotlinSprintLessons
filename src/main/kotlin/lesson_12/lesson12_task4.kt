@@ -1,18 +1,18 @@
 package org.example.lesson_12
 
-const val KELVIN_TO_CELSIUS = 273
+const val KELVIN_TO_CELSIUS_OFFSET = 273
 
 fun main() {
-    val mondayWeather = WeatherDataThird(295, 286, true)
+    val mondayWeather = WeatherDataFourth(295, 286, true)
 }
 
-class WeatherDataThird(
+class WeatherDataFourth(
     dayTempKelvin: Int,
     nighTempKelvin: Int,
     _hasPrecipitation: Boolean
 ) {
-    val dayTemp = dayTempKelvin - KELVIN_TO_CELSIUS
-    val nighTemp = nighTempKelvin - KELVIN_TO_CELSIUS
+    val dayTemp = dayTempKelvin - KELVIN_TO_CELSIUS_OFFSET
+    val nighTemp = nighTempKelvin - KELVIN_TO_CELSIUS_OFFSET
     val hasPrecipitation = _hasPrecipitation
 
     init {
