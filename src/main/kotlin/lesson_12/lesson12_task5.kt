@@ -2,7 +2,7 @@ package org.example.lesson_12
 
 import kotlin.random.Random
 
-const val KELVIN_TO_CELSIUS = 273
+const val KELVIN_TO_CELSIUS_DIFFERENCE = 273
 const val DAYS_IN_MONTH = 30
 
 fun main() {
@@ -40,8 +40,8 @@ class WeatherDaily(
     nighTempKelvin: Int,
     _hasPrecipitation: Boolean
 ) {
-    val dayTemp = dayTempKelvin - KELVIN_TO_CELSIUS
-    val nighTemp = nighTempKelvin - KELVIN_TO_CELSIUS
+    val dayTemp = dayTempKelvin - KELVIN_TO_CELSIUS_DIFFERENCE
+    val nighTemp = nighTempKelvin - KELVIN_TO_CELSIUS_DIFFERENCE
     val hasPrecipitation = _hasPrecipitation
 
     fun printWeather() {
