@@ -31,7 +31,7 @@ abstract class Figure(val color: String) {
 class Circle(color: String, val radius: Double) : Figure(color) {
     override fun calculateArea(): Double = Math.PI * radius * radius
 
-    override fun calculatePerimeter(): Double = 2 * Math.PI * radius
+    override fun calculatePerimeter(): Double = 2 * kotlin.math.PI * radius
 }
 
 class Rectangle(color: String, val width: Double, val height: Double) : Figure(color) {
