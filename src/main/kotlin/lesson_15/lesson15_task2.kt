@@ -17,11 +17,12 @@ class Temperature(override val value: Int) : WeatherStationStats()
 
 class PrecipitationAmount(override val value: Int) : WeatherStationStats()
 
-class WeatherServer() {
+class WeatherServer {
     fun sendData(stat: WeatherStationStats) {
         when (stat) {
             is Temperature -> println("Передача данных: температура - ${stat.value} °C")
             is PrecipitationAmount -> println("Передача данных: осадки - ${stat.value} мм")
+            else -> println("Ошибка: неверный тип данных")
         }
     }
 }
