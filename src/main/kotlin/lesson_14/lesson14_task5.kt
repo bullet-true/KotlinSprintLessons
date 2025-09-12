@@ -34,7 +34,7 @@ class ChildMessage(
     override fun getMessage(): String = "\t[$author]: $text   *{id = $id, parentId = $parentMessageId}"
 }
 
-class Chat() {
+class Chat {
     private val messages = mutableListOf<Message>()
     private var idCount = 0
 
@@ -49,19 +49,16 @@ class Chat() {
     }
 
     fun printChat() {
-        val groupedMessages = messages.groupBy { message ->
-            when (message) {
-                is ChildMessage -> message.parentMessageId
-                is Message -> message.id
-            }
-        }
+        val childGroupedMessages = messages
+            .filterIsInstance<ChildMessage>()
+            .groupBy { it.parentMessageId }
 
-        groupedMessages.forEach { (_, child) ->
-            child.forEach { message ->
-                if (message is ChildMessage) {
-                    println(message.getMessage())
-                } else println(message.getMessage())
+        messages.filter { it !is ChildMessage }
+            .forEach { parent ->
+                println(parent.getMessage())
+                childGroupedMessages[parent.id]?.forEach { child ->
+                    println(child.getMessage())
+                }
             }
-        }
     }
 }
