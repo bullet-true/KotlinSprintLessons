@@ -15,3 +15,10 @@
 13. Null Safety, NPE
 14. Inheritance
 15. Abstract classes and Interfaces
+16. Encapsulation
+17. Getters and Setters
+18. Polymorphism
+19. Enum, companion object
+20. Lambdas
+21. Extension functions
+22. Data classes
