@@ -7,12 +7,9 @@ fun main() {
 }
 
 class CircleFigure(private val radius: Double) {
+    private val PI = 3.14
 
     fun calculateArea(): Double = PI * radius * radius
 
     fun calculateCircumference(): Double = 2 * PI * radius
-
-    companion object {
-        private const val PI = 3.14
-    }
 }
