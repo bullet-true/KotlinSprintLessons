@@ -12,26 +12,14 @@ fun main() {
 }
 
 abstract class Dice(val numberOfSides: Int) {
-    abstract fun roll()
-}
-
-class Dice4 : Dice(4) {
-    override fun roll() {
+    fun roll() {
         val result = (1..numberOfSides).random()
         println("Бросок кости с числом граней $numberOfSides : $result")
     }
 }
 
-class Dice6 : Dice(6) {
-    override fun roll() {
-        val result = (1..numberOfSides).random()
-        println("Бросок кости с числом граней $numberOfSides : $result")
-    }
-}
+class Dice4 : Dice(4)
 
-class Dice8 : Dice(8) {
-    override fun roll() {
-        val result = (1..numberOfSides).random()
-        println("Бросок кости с числом граней $numberOfSides : $result")
-    }
-}
+class Dice6 : Dice(6)
+
+class Dice8 : Dice(8)
