@@ -1,14 +1,13 @@
 package org.example.lesson_20
 
 fun main() {
-    val healPotion: (Player) -> Unit = { player ->
-        val healAmount = player.maxHealth - player.currentHealth
-        player.currentHealth += healAmount
-        println("Восстановлено $healAmount здоровья игроку ${player.name}")
+    val useHealingPotion: (Player) -> Unit = { player ->
+        player.currentHealth = player.maxHealth
+        println("Восстановлено полное здоровья игроку ${player.name}. Текущее здоровье: ${player.currentHealth}")
     }
 
     val player = Player("Player", 10, 15)
-    healPotion(player)
+    useHealingPotion(player)
 }
 
 class Player(val name: String, var currentHealth: Int, val maxHealth: Int)
