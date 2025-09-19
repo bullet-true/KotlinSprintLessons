@@ -1,14 +1,16 @@
 package org.example.lesson_20
 
+const val BITS_IN_BYTE = 8
+
 fun main() {
     val bender = Robot()
     bender.say()
     bender.setModifier { phrase -> phrase.reversed() }
     bender.say()
 
-    val binaryMod: ((String) -> String) = { text ->
+    val binaryMod: (String) -> String = { text ->
         text.toCharArray()
-            .joinToString(" ") { it.code.toString(2).padStart(8, '0') }
+            .joinToString(" ") { it.code.toString(2).padStart(BITS_IN_BYTE, '0') }
     }
     bender.setModifier(binaryMod)
     bender.say()
@@ -23,11 +25,10 @@ class Robot {
         "This is the worst kind of discrimination: the kind against me!"
     )
 
-    private var modifier: ((String) -> String) = { it }
+    private var modifier: (String) -> String = { it }
 
     fun say() {
-        val randomPhrase = phrases.random()
-        println(modifier(randomPhrase))
+        println(modifier(phrases.random()))
     }
 
     fun setModifier(modifier: (String) -> String) {
