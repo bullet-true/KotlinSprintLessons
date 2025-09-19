@@ -8,6 +8,7 @@ fun main() {
     }
 
     val lambdas = transformToLambdas(listOfStrings)
-    lambdas.filterIndexed { index, _ -> index % 2 == 0 }
-        .forEach { it() }
+    lambdas.forEachIndexed { index, lambda ->
+        if (index % 2 != 0) lambda()
+    }
 }
