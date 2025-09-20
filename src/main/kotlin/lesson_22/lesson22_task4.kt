@@ -5,12 +5,13 @@ fun main() {
     viewModel.loadData()
 }
 
-data class MainScreenState(
-    val data: String? = null,
-    val isLoading: Boolean = false,
-)
-
 class MainScreenViewModel {
+
+    data class MainScreenState(
+        val data: String? = null,
+        val isLoading: Boolean = false,
+    )
+
     private var mainScreenState: MainScreenState = MainScreenState()
 
     fun loadData() {
