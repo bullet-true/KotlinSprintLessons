@@ -10,11 +10,10 @@ fun main() {
         distance = 4.367
     )
 
-    val (name, description, dateTime, distance) = alphaCentauri
-    println("Название места: $name")
-    println("Описание места: $description")
-    println("Дата и время события: $dateTime")
-    println("Расстояние от Земли: $distance световых лет")
+    println("Название места: ${alphaCentauri.component1()}")
+    println("Описание места: ${alphaCentauri.component2()}n")
+    println("Дата и время события: ${alphaCentauri.component3()}")
+    println("Расстояние от Земли: ${alphaCentauri.component4()} световых лет")
 }
 
 data class GalacticGuide(
