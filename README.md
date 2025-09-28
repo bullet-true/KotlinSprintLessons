@@ -22,3 +22,5 @@
 20. Lambdas
 21. Extension functions
 22. Data classes
+
+Всего 112 задач
